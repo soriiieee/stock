@@ -1,1 +1,6 @@
 env/
+dat/
+png/
+
+*.png
+*.csv
