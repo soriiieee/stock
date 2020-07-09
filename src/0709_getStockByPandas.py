@@ -20,11 +20,10 @@ from getErrorValues import me,rmse,mae,r2 #(x,y)
 # initial
 #
 from datetime import datetime
-import quandl
-api_key = open("../env/api.key").read()
-# print(api_key)
-# sys.exit()
-quandl.ApiConfig.api_key = str(api_key)
+# import quandl
+import pandas_datareader.data as web
+from pandas_datareader.nasdaq_trader import get_nasdaq_symbols
+from tqdm import tqdm
 
 # data = quandl.get('WIKI/PRICES',ticker = ['AAPL', 'MSFT', 'WMT'],
 #   qopts = { 'columns': ['ticker', 'date', 'adj_close'] },
@@ -33,6 +32,10 @@ quandl.ApiConfig.api_key = str(api_key)
 
 # print(datetime.now().strftime("%Y-%m-%d"))
 # sys.exit()
+symbols = get_nasdaq_symbols()
+datum = web.DataReader("GOOGL","yahoo","2019/11/1")
+print(datum.tail())
+sys.exit()
 def getStockData(sub, ticker):
   start_date = "2010-01-01"
   end_date = datetime.now().strftime("%Y-%m-%d")
