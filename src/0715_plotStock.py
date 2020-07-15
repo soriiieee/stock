@@ -43,24 +43,37 @@ def getStockData(ticker, media="yahoo", start_date="201701010000"):
   return data
   # sys.exit()
 
+def mk_merit(price,lag):
+  _se=[]
+  p_diff= price.diff(lag).values.tolist()
+  p0 = price.values.tolist()
+
+  for p in zip(p0, ):
+    price.diff()
+
+  return se
+
+
 if __name__ == "__main__":
   #
-      # symbols = get_nasdaq_symbols()
-      # use_cols = ['Nasdaq Traded', 'Security Name', 'Listing Exchange', 'Market Category','ETF', 'Round Lot Size', 'Test Issue', 'Financial Status', 'CQS Symbol','NASDAQ Symbol', 'NextShares']
-      # symbols = symbols.reset_index()
-      # symbols.to_csv("../dat/tickers.csv")
-      # # print(datetime.now().strftime("%Y-%m-%d"))
-      # sys.exit()
 
-  os.makedirs("../dat/0715" , exist_ok=True)
-  _ticker=["AAPL","MSFT","NVDA","INTC","TSM","SAP","QCOM","DCM","CTSH","EMC"]
-  media="yahoo"
-  start_date="201701010000"
+  os.makedirs("../dat/0715/png" , exist_ok=True)
+  _ticker=["TSM","SAP","QCOM","DCM","CTSH","EMC"]
+  _lag=[7,30,90]
+  
+  # df = pd.read_csv("../dat/0715/{}")
   for ticker in _ticker:
-    df = getStockData(ticker, media=media, start_date=start_date)
-    df = df.reset_index()
-    df.to_csv(f"../dat/0715/{ticker}.csv", index=False)
-    # print()
-    # print(df.shape)
-    # sys.exit()
+    df = pd.read_csv(f"../dat/0715/{ticker}.csv")
+    p = df["Close"]
+    p["logp"] = np.log(p["Close"])
+
+    for lag in _lag:
+      col ="mv_" +str(lag)
+      p[col] = p["Close"].rolling(lag).mean()
+
+    p["diff"] = price["Close"].diff().fillna(0)
+
+    print(df.head())
+    sys.exit()
+
     
