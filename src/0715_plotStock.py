@@ -58,7 +58,7 @@ if __name__ == "__main__":
   #
 
   os.makedirs("../dat/0715/png" , exist_ok=True)
-  _ticker=["TSM","SAP","QCOM","DCM","CTSH","EMC"]
+  _ticker=["TSM","SAP","QCOM","DCM","CTSH","EMC","DJI","IXIC","GSPC"]
   _lag=[7,30,90]
   
   # df = pd.read_csv("../dat/0715/{}")

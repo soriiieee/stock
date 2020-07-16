@@ -53,13 +53,40 @@ if __name__ == "__main__":
       # sys.exit()
 
   os.makedirs("../dat/0715" , exist_ok=True)
-  _ticker=["AAPL","MSFT","NVDA","INTC","TSM","SAP","QCOM","DCM","CTSH","EMC"]
+  # sihyou
+  # https://qiita.com/innovation1005/items/5be026cf7e1d459e9562 に資料が表示されている
+  # _ticker=["^DJI","^NDQ","^SPX"]
+
+  _ticker ={
+    "index":["^NDX","^NDXT","^IXCO","^OEX","^GSPC","^SOX","^N225"],
+    "company":["AAPL","MSFT","NVDA","INTC","TSM","SAP","QCOM","DCM","CTSH","EMC"],
+    "etf":["VCIT"]
+    }
+  #NKX:nikkei-ave
+  #IXIC:dow-ave
+  #ES.C:sp500-ave
+
+  # "^NDX" : nasdaq 100
+  # "^NDXT" : nasdaq tech 100
+  # "^IXCO" : nasdaq ccomputer
+  # "^OEX" : s&p 100
+  # "^GSPC" : s&p 500
+  # "^SOX" : handoutai 
+  # "^N225": nikkei225
+
+  # <ETF>
+  # VCIT
+
+
+  # media="stooq"
   media="yahoo"
+  cate="index"
+  os.makedirs(f"../dat/{cate}" , exist_ok=True)
   start_date="201701010000"
-  for ticker in _ticker:
+  for ticker in _ticker[cate]:
     df = getStockData(ticker, media=media, start_date=start_date)
     df = df.reset_index()
-    df.to_csv(f"../dat/0715/{ticker}.csv", index=False)
+    df.to_csv(f"../dat/{cate}/{ticker}.csv", index=False)
     # print()
     # print(df.shape)
     # sys.exit()

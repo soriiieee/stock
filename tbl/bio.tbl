@@ -1,0 +1,7 @@
+BIO=['GILD','VRTX','AMGN','BIIB','REGN','ILMN','SGEN','ALXN','INCY','BMRN','MRNA',
+     'ALNY','SYN','NBIX','SRPT','EXEL','IONS','TECH','MYL','ACAD','NKTR','ALKS',
+     'BLUE','JAZZ','QGEN','NBIX','SAGE','UTHR','ABBV','INO','VXRT']
+     
+HLT=['JNJ','UNH','MRK','PFE','ABT','BMY','AMGN','LLY','TMO','MDT','DHR','CVS','BDX',
+     'VRTX','CI','ANTM','AGN','ISRG','ZTS','CERN','HSIC','HOLX','IDXX','MYL','WBA',
+     'XRAY','ABBV']
