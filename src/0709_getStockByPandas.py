@@ -59,7 +59,7 @@ if __name__ == "__main__":
 
   _ticker ={
     "index":["^NDX","^NDXT","^IXCO","^OEX","^GSPC","^SOX","^N225"],
-    "company":["AAPL","MSFT","NVDA","INTC","TSM","SAP","QCOM","DCM","CTSH","EMC"],
+    "comp":["AAPL","MSFT","NVDA","INTC","TSM","SAP","QCOM","DCM","CTSH","EMC"],
     "etf":["VCIT"]
     }
   #NKX:nikkei-ave
